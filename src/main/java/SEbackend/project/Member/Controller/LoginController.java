@@ -33,8 +33,8 @@ public class LoginController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public ResponseEntity<?> logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login?logout";
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 }
