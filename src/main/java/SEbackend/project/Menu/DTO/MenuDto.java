@@ -8,10 +8,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor()
 public class MenuDto {
     private Long menuId;
-    private Integer cafeteria;
+    private String cafeteria;
     private String menu;
     private String hashtag;
     private Integer date;
+    private Integer price;
 
     public MenuDto(Menu entity) {
         menuId = entity.getMenuId();
@@ -19,6 +20,7 @@ public class MenuDto {
         menu = entity.getMenu();
         hashtag = entity.getHashtag();
         date = entity.getDate();
+        price = entity.getPrice();
     }
 }
 

@@ -1,7 +1,9 @@
-package SEbackend.project.Review.Controller;
+package SEbackend.project.Menu.Controller;
 
-import SEbackend.project.Review.DTO.ReviewDto;
-import SEbackend.project.Review.Service.ReviewService;
+import SEbackend.project.Menu.DTO.MenuDto;
+import SEbackend.project.Menu.DTO.ReviewDto;
+import SEbackend.project.Menu.Service.MenuService;
+import SEbackend.project.Menu.Service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -9,14 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.util.List;
+import java.util.*;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/menu")
-public class WriteController {
+public class ReviewController {
 
+    private final MenuService menuService;
     private final ReviewService reviewService;
 
 /*
@@ -35,9 +38,13 @@ public class WriteController {
     }
 
     @GetMapping("/{menuId}/review")
-    public ResponseEntity<List<ReviewDto>> reviewList(@PathVariable(name="menuId") Long menuId){
-        log.info("in reviewList");
-        List<ReviewDto> reviewDTOList = reviewService.getList(menuId);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(reviewDTOList);
+    public ResponseEntity<Map<String, Object>> reviewList(@PathVariable(name="menuId") Long menuId){
+        log.info("in read all");
+        MenuDto menuInfo = menuService.getMenuInfo(menuId);
+        List<ReviewDto> reviewList = reviewService.getList(menuId);
+        Map<String, Object> ret = new HashMap<>();
+        ret.put("menu", menuInfo);
+        ret.put("review", reviewList);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(ret);
     }
 }

@@ -1,6 +1,6 @@
-package SEbackend.project.Review.DTO;
+package SEbackend.project.Menu.DTO;
 
-import SEbackend.project.Review.Entity.Review;
+import SEbackend.project.Menu.Entity.Review;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

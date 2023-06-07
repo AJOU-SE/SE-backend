@@ -1,7 +1,7 @@
-package SEbackend.project.Review.Entity;
+package SEbackend.project.Menu.Entity;
 
 
-import SEbackend.project.Review.DTO.ReviewDto;
+import SEbackend.project.Menu.DTO.ReviewDto;
 import lombok.*;
 
 import javax.persistence.*;

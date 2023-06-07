@@ -1,6 +1,6 @@
-package SEbackend.project.Review.Repository;
+package SEbackend.project.Menu.Repository;
 
-import SEbackend.project.Review.Entity.Review;
+import SEbackend.project.Menu.Entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,8 +1,8 @@
-package SEbackend.project.Review.Service;
+package SEbackend.project.Menu.Service;
 
-import SEbackend.project.Review.DTO.ReviewDto;
-import SEbackend.project.Review.Entity.Review;
-import SEbackend.project.Review.Repository.ReviewRepository;
+import SEbackend.project.Menu.DTO.ReviewDto;
+import SEbackend.project.Menu.Entity.Review;
+import SEbackend.project.Menu.Repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

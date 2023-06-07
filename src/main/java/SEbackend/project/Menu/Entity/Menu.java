@@ -14,10 +14,11 @@ import javax.persistence.*;
 public class Menu {
     @Id@GeneratedValue
     private Long menuId;
-    private Integer cafeteria;
+    private String cafeteria;
     private String menu;
     private String hashtag;
     private Integer date;
+    private Integer price;
 
     public Menu(MenuDto dto) {
         menuId = dto.getMenuId();
@@ -25,6 +26,7 @@ public class Menu {
         menu = dto.getMenu();
         hashtag = dto.getHashtag();
         date = dto.getDate();
+        price = dto.getPrice();
     }
 
 }
