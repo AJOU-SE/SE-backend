@@ -11,7 +11,7 @@ public class ReviewDto {
     private Long menuId;
     private Integer rate;
     private String content;
-    private String name;
+    public String name;
 
     public ReviewDto(Review entity) {
         reviewId = entity.getReviewId();

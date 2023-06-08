@@ -1,5 +1,6 @@
 package SEbackend.project.Menu.Controller;
 
+import SEbackend.project.Member.DTO.MemberDto;
 import SEbackend.project.Menu.DTO.MenuDto;
 import SEbackend.project.Menu.DTO.ReviewDto;
 import SEbackend.project.Menu.Service.MenuService;
@@ -10,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.net.URI;
 import java.util.*;
 
@@ -30,9 +33,13 @@ public class ReviewController {
 */
 
     @PostMapping("/{menuId}/write")
-    public ResponseEntity<ReviewDto> postReview(@PathVariable(name="menuId") Long menuId, @RequestBody ReviewDto reviewDto){
+    public ResponseEntity<ReviewDto> postReview(@PathVariable(name="menuId") Long menuId, @RequestBody ReviewDto reviewDto, HttpServletRequest request){
         reviewDto.setMenuId(menuId);
         log.info(reviewDto.toString());
+        HttpSession session = request.getSession(false);
+        MemberDto login = (MemberDto)session.getAttribute("login");
+        log.info(login.toString());
+        reviewDto.name = login.getNickName();
         reviewService.save(reviewDto);
         return ResponseEntity.created(URI.create("/" + menuId + "/review")).build();
     }
