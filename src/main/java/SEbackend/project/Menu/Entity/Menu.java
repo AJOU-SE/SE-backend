@@ -19,6 +19,8 @@ public class Menu {
     private String hashtag;
     private Integer date;
     private Integer price;
+    private String store;
+    private String time;
 
     public Menu(MenuDto dto) {
         menuId = dto.getMenuId();
@@ -27,6 +29,8 @@ public class Menu {
         hashtag = dto.getHashtag();
         date = dto.getDate();
         price = dto.getPrice();
+        store = dto.getStore();
+        time = dto.getTime();
     }
 
 }

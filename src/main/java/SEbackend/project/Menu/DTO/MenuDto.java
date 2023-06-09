@@ -13,6 +13,8 @@ public class MenuDto {
     private String hashtag;
     private Integer date;
     private Integer price;
+    private String store;
+    private String time;
 
     public MenuDto(Menu entity) {
         menuId = entity.getMenuId();
@@ -21,6 +23,8 @@ public class MenuDto {
         hashtag = entity.getHashtag();
         date = entity.getDate();
         price = entity.getPrice();
+        store = entity.getStore();
+        time = entity.getTime();
     }
 }
 
